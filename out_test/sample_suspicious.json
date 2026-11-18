@@ -1,0 +1,295 @@
+{
+  "file": {
+    "path": "C:\\Users\\VLADEMIR\\Desktop\\apk remota\\tests\\samples\\sample_suspicious.apk",
+    "name": "sample_suspicious.apk",
+    "size": 969,
+    "sha256": "621d440f67de502515572449f2416b113772892bf27e4e754af00e572708365e",
+    "md5": "9ef7d20bf2379394fac93a7a6b676554"
+  },
+  "analyzed_at": "2026-11-12T00:02:24+00:00",
+  "app": {
+    "package": "com.example.sample",
+    "app_name": "",
+    "version_name": "",
+    "version_code": "",
+    "min_sdk": "",
+    "target_sdk": "",
+    "main_activity": "",
+    "permissions": [
+      "android.permission.ACCESS_FINE_LOCATION",
+      "android.permission.BIND_ACCESSIBILITY_SERVICE",
+      "android.permission.CAMERA",
+      "android.permission.INTERNET",
+      "android.permission.QUERY_ALL_PACKAGES",
+      "android.permission.READ_CALL_LOG",
+      "android.permission.READ_CONTACTS",
+      "android.permission.READ_SMS",
+      "android.permission.RECEIVE_SMS",
+      "android.permission.RECORD_AUDIO",
+      "android.permission.REQUEST_INSTALL_PACKAGES",
+      "android.permission.SEND_SMS",
+      "android.permission.SYSTEM_ALERT_WINDOW"
+    ],
+    "activities": [
+      ".MainActivity"
+    ],
+    "services": [
+      ".SpyService"
+    ],
+    "receivers": [
+      ".BootReceiver"
+    ],
+    "providers": [
+      ".DataProvider"
+    ],
+    "exported_components": [
+      "activity:.MainActivity",
+      "provider:.DataProvider",
+      "receiver:.BootReceiver",
+      "service:.SpyService"
+    ],
+    "debuggable": true,
+    "allow_backup": true,
+    "uses_cleartext": true,
+    "network_security_config": ""
+  },
+  "signature": {
+    "is_signed": false,
+    "scheme": "",
+    "subject": "",
+    "issuer": "",
+    "serial": "",
+    "sha256": "",
+    "valid_from": "",
+    "valid_to": "",
+    "is_self_signed": false,
+    "is_debug_cert": false,
+    "errors": []
+  },
+  "risk": {
+    "score": 100,
+    "level": "critical",
+    "level_label": "Crítico",
+    "verdict": "Muy sospechoso",
+    "counts": {
+      "info": 0,
+      "low": 1,
+      "medium": 2,
+      "high": 11,
+      "critical": 0
+    }
+  },
+  "stats": {
+    "dex_count": 1,
+    "dex_total_size": 108,
+    "classes": 0,
+    "methods": 0,
+    "strings": 0,
+    "native_libs": 0,
+    "assets": 1,
+    "zip_entries": 3,
+    "permissions": 13,
+    "exported_components": 4
+  },
+  "virustotal": null,
+  "findings": [
+    {
+      "rule_id": "APP-DEBUGGABLE",
+      "title": "Aplicación compilada en modo depurable",
+      "severity": "high",
+      "description": "android:debuggable=\"true\" permite adjuntar un depurador y ejecutar código arbitrario en el contexto de la app. Un APK de producción nunca debería estar en este estado.",
+      "category": "configuración",
+      "evidence": [
+        "android:debuggable=true"
+      ],
+      "recommendation": "Compilar en modo release.",
+      "score": 15,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "PERM-COUNT-HIGH",
+      "title": "Exceso de permisos peligrosos (13)",
+      "severity": "high",
+      "description": "La app solicita un número muy elevado de permisos peligrosos. Las apps legítimas suelen limitarse a los estrictamente necesarios.",
+      "category": "permisos",
+      "evidence": [
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.BIND_ACCESSIBILITY_SERVICE",
+        "android.permission.CAMERA",
+        "android.permission.INTERNET",
+        "android.permission.QUERY_ALL_PACKAGES",
+        "android.permission.READ_CALL_LOG",
+        "android.permission.READ_CONTACTS",
+        "android.permission.READ_SMS",
+        "android.permission.RECEIVE_SMS",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.REQUEST_INSTALL_PACKAGES",
+        "android.permission.SEND_SMS",
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ],
+      "recommendation": "Revisar cada permiso y su relación con la funcionalidad real.",
+      "score": 15,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "SIG-UNSIGNED",
+      "title": "APK sin firma válida",
+      "severity": "high",
+      "description": "No se encontró un certificado de firma legible en el APK.",
+      "category": "firma",
+      "evidence": [],
+      "recommendation": "",
+      "score": 15,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "PERM-BIND_ACCESSIBILITY_SERVICE",
+      "title": "Permiso sensible: Servicio de accesibilidad",
+      "severity": "high",
+      "description": "Permite leer la pantalla y simular toques: base de troyanos bancarios y de apps que roban credenciales de otras aplicaciones.",
+      "category": "permisos",
+      "evidence": [
+        "android.permission.BIND_ACCESSIBILITY_SERVICE"
+      ],
+      "recommendation": "Verificar si la funcionalidad declarada justifica este permiso.",
+      "score": 12,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "PERM-QUERY_ALL_PACKAGES",
+      "title": "Permiso sensible: Consulta de todas las apps instaladas",
+      "severity": "high",
+      "description": "Inventario completo del dispositivo: usado para detectar apps bancarias y antivirus instalados.",
+      "category": "permisos",
+      "evidence": [
+        "android.permission.QUERY_ALL_PACKAGES"
+      ],
+      "recommendation": "Verificar si la funcionalidad declarada justifica este permiso.",
+      "score": 12,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "PERM-READ_CALL_LOG",
+      "title": "Permiso sensible: Lectura del registro de llamadas",
+      "severity": "high",
+      "description": "Recolecta historial de llamadas: dato sensible usado en spyware.",
+      "category": "permisos",
+      "evidence": [
+        "android.permission.READ_CALL_LOG"
+      ],
+      "recommendation": "Verificar si la funcionalidad declarada justifica este permiso.",
+      "score": 12,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "PERM-READ_SMS",
+      "title": "Permiso sensible: Lectura de SMS",
+      "severity": "high",
+      "description": "Permite interceptar códigos OTP de banca y de doble factor.",
+      "category": "permisos",
+      "evidence": [
+        "android.permission.READ_SMS"
+      ],
+      "recommendation": "Verificar si la funcionalidad declarada justifica este permiso.",
+      "score": 12,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "PERM-RECEIVE_SMS",
+      "title": "Permiso sensible: Recepción de SMS",
+      "severity": "high",
+      "description": "Permite interceptar y suprimir SMS entrantes (OTP, alertas del banco).",
+      "category": "permisos",
+      "evidence": [
+        "android.permission.RECEIVE_SMS"
+      ],
+      "recommendation": "Verificar si la funcionalidad declarada justifica este permiso.",
+      "score": 12,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "PERM-REQUEST_INSTALL_PACKAGES",
+      "title": "Permiso sensible: Instalación de paquetes",
+      "severity": "high",
+      "description": "Permite instalar otros APKs: vector típico de droppers que descargan un segundo payload malicioso.",
+      "category": "permisos",
+      "evidence": [
+        "android.permission.REQUEST_INSTALL_PACKAGES"
+      ],
+      "recommendation": "Verificar si la funcionalidad declarada justifica este permiso.",
+      "score": 12,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "PERM-SEND_SMS",
+      "title": "Permiso sensible: Envío de SMS",
+      "severity": "high",
+      "description": "Usado para suscripción a servicios premium y para propagar el malware por SMS sin conocimiento del usuario.",
+      "category": "permisos",
+      "evidence": [
+        "android.permission.SEND_SMS"
+      ],
+      "recommendation": "Verificar si la funcionalidad declarada justifica este permiso.",
+      "score": 12,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "PERM-SYSTEM_ALERT_WINDOW",
+      "title": "Permiso sensible: Superposición de ventanas (overlay)",
+      "severity": "high",
+      "description": "Habilita ataques de superposición de pantalla para capturar pulsaciones sobre otras apps (clickjacking / overlay phishing).",
+      "category": "permisos",
+      "evidence": [
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ],
+      "recommendation": "Verificar si la funcionalidad declarada justifica este permiso.",
+      "score": 12,
+      "severity_label": "Alto"
+    },
+    {
+      "rule_id": "NET-CLEARTEXT",
+      "title": "Tráfico HTTP en claro permitido",
+      "severity": "medium",
+      "description": "usesCleartextTraffic=\"true\" permite conexiones sin TLS: los datos pueden ser interceptados en redes Wi-Fi públicas.",
+      "category": "red",
+      "evidence": [
+        "android:usesCleartextTraffic=true"
+      ],
+      "recommendation": "Usar HTTPS y una network security config restrictiva.",
+      "score": 8,
+      "severity_label": "Medio"
+    },
+    {
+      "rule_id": "COMP-EXPORTED",
+      "title": "Componentes exportados (4)",
+      "severity": "medium",
+      "description": "Componentes accesibles desde otras aplicaciones. Si no están protegidos con permisos, pueden ser invocados por terceros.",
+      "category": "componentes",
+      "evidence": [
+        "activity:.MainActivity",
+        "provider:.DataProvider",
+        "receiver:.BootReceiver",
+        "service:.SpyService"
+      ],
+      "recommendation": "Revisar cada componente exportado y añadir android:permission si no es necesario.",
+      "score": 6,
+      "severity_label": "Medio"
+    },
+    {
+      "rule_id": "APP-ALLOW-BACKUP",
+      "title": "Copias de seguridad habilitadas (allowBackup)",
+      "severity": "low",
+      "description": "Permite extraer los datos privados de la app mediante adb backup en dispositivos con depuración USB habilitada.",
+      "category": "configuración",
+      "evidence": [
+        "android:allowBackup=true"
+      ],
+      "recommendation": "",
+      "score": 4,
+      "severity_label": "Bajo"
+    }
+  ],
+  "errors": [
+    "No se pudo parsear classes.dex: Not a DEX file, Header too small."
+  ]
+}

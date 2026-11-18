@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resumen comparativo — 1 APKs</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;padding:24px;line-height:1.5}
+  .wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+  .card{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:20px}
+  h1{font-size:1.3rem;margin-bottom:4px}
+  .muted{color:#94a3b8;font-size:.85rem}
+  .kpis{display:flex;gap:12px;flex-wrap:wrap}
+  .kpi{flex:1 1 150px;background:#0f172a;border:1px solid #334155;border-radius:10px;padding:14px}
+  .kpi b{display:block;font-size:1.6rem}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #334155;vertical-align:middle}
+  th{color:#94a3b8;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:.78rem;color:#93c5fd}
+  .score-pill{display:inline-block;min-width:44px;text-align:center;font-weight:700;padding:4px 8px;
+              border-radius:8px;background:var(--c);color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="card">
+    <h1>Resumen comparativo</h1>
+    <p class="muted">1 APK(s) analizados · ordenados por riesgo</p>
+  </section>
+
+  <section class="card">
+    <div class="kpis">
+      <div class="kpi"><b style="color:#dc2626">1</b><span class="muted">Críticos</span></div>
+      <div class="kpi"><b style="color:#f97316">0</b><span class="muted">Altos</span></div>
+      <div class="kpi"><b style="color:#22c55e">0</b><span class="muted">Bajo riesgo</span></div>
+      <div class="kpi"><b>1</b><span class="muted">Total</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <table>
+      <thead>
+        <tr><th>Archivo</th><th>Riesgo</th><th>Veredicto</th><th>VirusTotal</th><th>Hallazgos</th><th>SHA-256</th></tr>
+      </thead>
+      <tbody>
+        
+      <tr>
+        <td><strong>sample_suspicious.apk</strong><br><span class="muted">com.example.sample</span></td>
+        <td><span class="score-pill" style="--c:#dc2626">100</span></td>
+        <td style="color:#dc2626;font-weight:600">Muy sospechoso</td>
+        <td><span class="muted">—</span></td>
+        <td class="muted">C0 · A11 · M2 · B1</td>
+        <td><code>621d440f67de5025…</code></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <p class="muted" style="text-align:center;padding:10px">
+    Generado por Analizador Estático de APKs · análisis 100% offline (salvo la consulta de hash a VirusTotal).
+  </p>
+</div>
+</body>
+</html>

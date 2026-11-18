@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Análisis estático — sample_suspicious.apk</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#0f172a;color:#e2e8f0;padding:24px;line-height:1.5}
+  .wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+  .card{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:20px}
+  h1{font-size:1.3rem;margin-bottom:4px}
+  h2{font-size:1rem;margin-bottom:12px;color:#cbd5e1}
+  .muted{color:#94a3b8;font-size:.85rem}
+  .score{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .ring{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;
+        background:conic-gradient(#dc2626 100%, #334155 0);flex:0 0 auto}
+  .ring span{width:86px;height:86px;border-radius:50%;background:#1e293b;display:grid;place-items:center;
+        font-size:1.5rem;font-weight:700;color:#dc2626}
+  .verdict{font-size:1.15rem;font-weight:700;color:#dc2626}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .chip{font-size:.75rem;font-weight:600;padding:4px 10px;border-radius:999px;background:#0f172a;border:1px solid #334155}
+  table{width:100%;border-collapse:collapse;font-size:.85rem}
+  th,td{text-align:left;padding:6px 8px;border-bottom:1px solid #334155;vertical-align:top}
+  th{color:#94a3b8;font-weight:600;width:45%}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:.8rem;word-break:break-all;color:#93c5fd}
+  ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+  .finding{background:#0f172a;border-left:4px solid var(--c);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+  .finding header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .finding h3{font-size:.95rem}
+  .badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+         padding:3px 8px;border-radius:6px;background:var(--c);color:#fff}
+  .rid{margin-left:auto;font-size:.7rem;color:#64748b;font-family:ui-monospace,monospace}
+  .rec{margin-top:6px;font-size:.85rem;color:#a5b4fc}
+  details{margin-top:8px;font-size:.82rem}
+  summary{cursor:pointer;color:#94a3b8}
+  .ev{margin-top:6px;max-height:220px;overflow:auto;background:#111c33;padding:8px;border-radius:8px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="card">
+    <h1>sample_suspicious.apk</h1>
+    <p class="muted">com.example.sample</p>
+    <p class="muted">SHA-256: <code>621d440f67de502515572449f2416b113772892bf27e4e754af00e572708365e</code></p>
+    <p class="muted">Tamaño: 969 B · Analizado: 2026-11-12T00:02:24+00:00</p>
+  </section>
+
+  <section class="card">
+    <h2>Veredicto</h2>
+    <div class="score">
+      <div class="ring"><span>100</span></div>
+      <div>
+        <div class="verdict">Muy sospechoso</div>
+        <div class="muted">Nivel de riesgo: Crítico · 14 hallazgos</div>
+        <div class="chips">
+          <span class="chip" style="color:#dc2626">Críticos: 0</span>
+          <span class="chip" style="color:#f97316">Altos: 11</span>
+          <span class="chip" style="color:#f59e0b">Medios: 2</span>
+          <span class="chip" style="color:#3b82f6">Bajos: 1</span>
+          <span class="chip" style="color:#64748b">Info: 0</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Firma</h2>
+      <table>
+        <tr><th>Firmado</th><td>No</td></tr>
+        <tr><th>Esquema</th><td>—</td></tr>
+        <tr><th>Sujeto</th><td><code>—</code></td></tr>
+        <tr><th>Emisor</th><td><code>—</code></td></tr>
+        <tr><th>SHA-256 cert</th><td><code>—</code></td></tr>
+        <tr><th>Válido hasta</th><td>—</td></tr>
+        <tr><th>Autofirmado</th><td>No</td></tr>
+        <tr><th>Cert. de debug</th><td>No</td></tr>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Estadísticas</h2>
+      <table><tr><th>dex_count</th><td>1</td></tr><tr><th>dex_total_size</th><td>108</td></tr><tr><th>classes</th><td>0</td></tr><tr><th>methods</th><td>0</td></tr><tr><th>strings</th><td>0</td></tr><tr><th>native_libs</th><td>0</td></tr><tr><th>assets</th><td>1</td></tr><tr><th>zip_entries</th><td>3</td></tr><tr><th>permissions</th><td>13</td></tr><tr><th>exported_components</th><td>4</td></tr></table>
+    </section>
+  </div>
+
+  
+
+  <div class="grid">
+    <section class="card">
+      <h2>Permisos (13)</h2>
+      <ul><li><code>android.permission.ACCESS_FINE_LOCATION</code></li><li><code>android.permission.BIND_ACCESSIBILITY_SERVICE</code></li><li><code>android.permission.CAMERA</code></li><li><code>android.permission.INTERNET</code></li><li><code>android.permission.QUERY_ALL_PACKAGES</code></li><li><code>android.permission.READ_CALL_LOG</code></li><li><code>android.permission.READ_CONTACTS</code></li><li><code>android.permission.READ_SMS</code></li><li><code>android.permission.RECEIVE_SMS</code></li><li><code>android.permission.RECORD_AUDIO</code></li><li><code>android.permission.REQUEST_INSTALL_PACKAGES</code></li><li><code>android.permission.SEND_SMS</code></li><li><code>android.permission.SYSTEM_ALERT_WINDOW</code></li></ul>
+    </section>
+    <section class="card">
+      <h2>Componentes exportados (4)</h2>
+      <ul><li><code>activity:.MainActivity</code></li><li><code>provider:.DataProvider</code></li><li><code>receiver:.BootReceiver</code></li><li><code>service:.SpyService</code></li></ul>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>Hallazgos (14)</h2>
+    
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Aplicación compilada en modo depurable</h3>
+                <span class="rid">APP-DEBUGGABLE</span>
+              </header>
+              <p>android:debuggable=&quot;true&quot; permite adjuntar un depurador y ejecutar código arbitrario en el contexto de la app. Un APK de producción nunca debería estar en este estado.</p>
+              <p class="rec"><strong>Recomendación:</strong> Compilar en modo release.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android:debuggable=true</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Exceso de permisos peligrosos (13)</h3>
+                <span class="rid">PERM-COUNT-HIGH</span>
+              </header>
+              <p>La app solicita un número muy elevado de permisos peligrosos. Las apps legítimas suelen limitarse a los estrictamente necesarios.</p>
+              <p class="rec"><strong>Recomendación:</strong> Revisar cada permiso y su relación con la funcionalidad real.</p>
+              <details><summary>Evidencia (13)</summary><ul class="ev"><li><code>android.permission.ACCESS_FINE_LOCATION</code></li><li><code>android.permission.BIND_ACCESSIBILITY_SERVICE</code></li><li><code>android.permission.CAMERA</code></li><li><code>android.permission.INTERNET</code></li><li><code>android.permission.QUERY_ALL_PACKAGES</code></li><li><code>android.permission.READ_CALL_LOG</code></li><li><code>android.permission.READ_CONTACTS</code></li><li><code>android.permission.READ_SMS</code></li><li><code>android.permission.RECEIVE_SMS</code></li><li><code>android.permission.RECORD_AUDIO</code></li><li><code>android.permission.REQUEST_INSTALL_PACKAGES</code></li><li><code>android.permission.SEND_SMS</code></li><li><code>android.permission.SYSTEM_ALERT_WINDOW</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>APK sin firma válida</h3>
+                <span class="rid">SIG-UNSIGNED</span>
+              </header>
+              <p>No se encontró un certificado de firma legible en el APK.</p>
+              
+              
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Permiso sensible: Servicio de accesibilidad</h3>
+                <span class="rid">PERM-BIND_ACCESSIBILITY_SERVICE</span>
+              </header>
+              <p>Permite leer la pantalla y simular toques: base de troyanos bancarios y de apps que roban credenciales de otras aplicaciones.</p>
+              <p class="rec"><strong>Recomendación:</strong> Verificar si la funcionalidad declarada justifica este permiso.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android.permission.BIND_ACCESSIBILITY_SERVICE</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Permiso sensible: Consulta de todas las apps instaladas</h3>
+                <span class="rid">PERM-QUERY_ALL_PACKAGES</span>
+              </header>
+              <p>Inventario completo del dispositivo: usado para detectar apps bancarias y antivirus instalados.</p>
+              <p class="rec"><strong>Recomendación:</strong> Verificar si la funcionalidad declarada justifica este permiso.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android.permission.QUERY_ALL_PACKAGES</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Permiso sensible: Lectura del registro de llamadas</h3>
+                <span class="rid">PERM-READ_CALL_LOG</span>
+              </header>
+              <p>Recolecta historial de llamadas: dato sensible usado en spyware.</p>
+              <p class="rec"><strong>Recomendación:</strong> Verificar si la funcionalidad declarada justifica este permiso.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android.permission.READ_CALL_LOG</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Permiso sensible: Lectura de SMS</h3>
+                <span class="rid">PERM-READ_SMS</span>
+              </header>
+              <p>Permite interceptar códigos OTP de banca y de doble factor.</p>
+              <p class="rec"><strong>Recomendación:</strong> Verificar si la funcionalidad declarada justifica este permiso.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android.permission.READ_SMS</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Permiso sensible: Recepción de SMS</h3>
+                <span class="rid">PERM-RECEIVE_SMS</span>
+              </header>
+              <p>Permite interceptar y suprimir SMS entrantes (OTP, alertas del banco).</p>
+              <p class="rec"><strong>Recomendación:</strong> Verificar si la funcionalidad declarada justifica este permiso.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android.permission.RECEIVE_SMS</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Permiso sensible: Instalación de paquetes</h3>
+                <span class="rid">PERM-REQUEST_INSTALL_PACKAGES</span>
+              </header>
+              <p>Permite instalar otros APKs: vector típico de droppers que descargan un segundo payload malicioso.</p>
+              <p class="rec"><strong>Recomendación:</strong> Verificar si la funcionalidad declarada justifica este permiso.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android.permission.REQUEST_INSTALL_PACKAGES</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Permiso sensible: Envío de SMS</h3>
+                <span class="rid">PERM-SEND_SMS</span>
+              </header>
+              <p>Usado para suscripción a servicios premium y para propagar el malware por SMS sin conocimiento del usuario.</p>
+              <p class="rec"><strong>Recomendación:</strong> Verificar si la funcionalidad declarada justifica este permiso.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android.permission.SEND_SMS</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f97316">
+              <header>
+                <span class="badge">Alto</span>
+                <h3>Permiso sensible: Superposición de ventanas (overlay)</h3>
+                <span class="rid">PERM-SYSTEM_ALERT_WINDOW</span>
+              </header>
+              <p>Habilita ataques de superposición de pantalla para capturar pulsaciones sobre otras apps (clickjacking / overlay phishing).</p>
+              <p class="rec"><strong>Recomendación:</strong> Verificar si la funcionalidad declarada justifica este permiso.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android.permission.SYSTEM_ALERT_WINDOW</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f59e0b">
+              <header>
+                <span class="badge">Medio</span>
+                <h3>Tráfico HTTP en claro permitido</h3>
+                <span class="rid">NET-CLEARTEXT</span>
+              </header>
+              <p>usesCleartextTraffic=&quot;true&quot; permite conexiones sin TLS: los datos pueden ser interceptados en redes Wi-Fi públicas.</p>
+              <p class="rec"><strong>Recomendación:</strong> Usar HTTPS y una network security config restrictiva.</p>
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android:usesCleartextTraffic=true</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#f59e0b">
+              <header>
+                <span class="badge">Medio</span>
+                <h3>Componentes exportados (4)</h3>
+                <span class="rid">COMP-EXPORTED</span>
+              </header>
+              <p>Componentes accesibles desde otras aplicaciones. Si no están protegidos con permisos, pueden ser invocados por terceros.</p>
+              <p class="rec"><strong>Recomendación:</strong> Revisar cada componente exportado y añadir android:permission si no es necesario.</p>
+              <details><summary>Evidencia (4)</summary><ul class="ev"><li><code>activity:.MainActivity</code></li><li><code>provider:.DataProvider</code></li><li><code>receiver:.BootReceiver</code></li><li><code>service:.SpyService</code></li></ul></details>
+            </article>
+            <article class="finding" style="--c:#3b82f6">
+              <header>
+                <span class="badge">Bajo</span>
+                <h3>Copias de seguridad habilitadas (allowBackup)</h3>
+                <span class="rid">APP-ALLOW-BACKUP</span>
+              </header>
+              <p>Permite extraer los datos privados de la app mediante adb backup en dispositivos con depuración USB habilitada.</p>
+              
+              <details><summary>Evidencia (1)</summary><ul class="ev"><li><code>android:allowBackup=true</code></li></ul></details>
+            </article>
+  </section>
+
+  <section class="card"><h2>Errores durante el análisis</h2><ul><li>No se pudo parsear classes.dex: Not a DEX file, Header too small.</li></ul></section>
+
+  <p class="muted" style="text-align:center;padding:10px">
+    Generado por Analizador Estático de APKs · análisis 100% offline, el APK no se ejecuta.
+  </p>
+</div>
+</body>
+</html>
